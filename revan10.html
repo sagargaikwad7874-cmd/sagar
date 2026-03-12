@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Move Car to Cursor</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:#222;
+}
+
+#gameArea{
+    width:100vw;
+    height:100vh;
+    position:relative;
+}
+
+#car{
+    width:60px;
+    height:100px;
+    background:red;
+    position:absolute;
+    left:200px;
+    top:200px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="gameArea">
+<div id="car"></div>
+</div>
+
+<script>
+
+const car = document.getElementById("car");
+
+let carX = 200;
+let carY = 200;
+
+document.addEventListener("mousemove", function(e){
+
+    let mouseX = e.clientX;
+    let mouseY = e.clientY;
+
+    let dx = mouseX - carX;
+    let dy = mouseY - carY;
+
+    carX += dx * 0.05;
+    carY += dy * 0.05;
+
+    car.style.left = carX + "px";
+    car.style.top = carY + "px";
+
+});
+
+</script>
+
+</body>
+</html>
